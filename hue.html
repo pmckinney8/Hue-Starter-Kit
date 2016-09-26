@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Hue Demo</title>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="main.js"></script>
+ </head>
+ <body>
+
+  <div class='container'>
+     <h1 class='text-center'>Hue Starter Kit </h1>
+
+     <hr>
+
+     <div class='row text-center'>
+
+      <div class='col-md-6 text-center'>
+       <h2> 1.) Find the ip address of the hue</h2>
+       <button class='btn btn-default btn-lg' id='find_ip'>Find IP</button>
+       <p id='your_ip'></p>
+      </div>
+
+      <div class='col-md-6'>
+       <h2> 2.) Set username to receive an api key</h2>
+       <form action='#' method='Put'>
+         <div class="form-group">
+           <label for="username">Hue User Name:</label>
+           <input type="text" class="form-control" id="username" name='username' placeholder="username here">
+         </div>
+       </form>
+       <button type="submit" class="btn btn-default" id='set_user_name'>Set Username</button>
+       <p id='api_key'></p>
+      </div>
+     </div>
+
+     <hr>
+
+     <div class='row'>
+      <h2 class='text-center'>Hue lights on your network</h2>
+      <div class='col-md-8 col-md-offset-2'>
+       <div class="panel panel-default">
+        <!-- <div class="panel-heading">Panel Heading</div> -->
+        <div class="panel-body">
+         <table class="table table-striped">
+           <thead>
+             <tr>
+               <th>Light Name</th>
+               <th>On</th>
+               <th>Brightness</th>
+               <th>Saturation</th>
+               <th>Hue</th>
+             </tr>
+           </thead>
+           <tbody id='table_body'>
+
+
+           </tbody>
+         </table>
+
+         </div>
+        </div>
+
+
+     </div>
+     </div>
+
+     <hr>
+
+
+     <div class='row' id='manipulate_lights'>
+      <div class='col-md-6'>
+
+      <h2 class='text-center'>Manipulate the lights</h2>
+      <form action='#' method='Put'>
+       <div class="form-group">
+        <label for="light">Light:</label>
+        <select class="form-control" id="light" name='light'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+       </div>
+
+       <div class="form-group">
+        <label for="on_off">On:</label>
+        <select class="form-control" id="on_off" name='on_off'>
+          <option value='true'>True</option>
+          <option value='false'>False</option>
+        </select>
+       </div>
+
+        <div class="form-group">
+          <label for="saturation">Saturation:</label>
+          <input type="text" class="form-control" id="saturation" name='saturation' placeholder="Enter number from 0-254">
+        </div>
+
+        <div class="form-group">
+          <label for="brightness">Brightness:</label>
+          <input type="text" class="form-control" id="brightness" name='brightness' placeholder="Enter number from 0-254">
+        </div>
+
+        <div class="form-group">
+          <label for="hue">Hue:</label>
+          <input type="text" class="form-control" id="hue" name='hue' placeholder="Enter number from 0-65535">
+        </div>
+      </form>
+      <button class='btn btn-success' id='change_light'>Submit Changes</button>
+
+     </div>
+
+     <div class='col-md-6'>
+      <h2>Other Actions</h2>
+      <button class='btn btn-default' id='toggle_lights'>Toggle Lights ON/OFF</button>
+      <button class='btn btn-default' id='color_loop'>Toggle Color Loop</button>
+     </div>
+     </div>
+
+ </div>
+ </body>
+</html>
