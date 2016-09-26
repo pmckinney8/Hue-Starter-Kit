@@ -33,13 +33,14 @@
 
       <div class='col-md-6'>
        <h2> 2.) Set username to receive an api key</h2>
-       <form action='#' method='Put'>
+       <form action='#' method='Put' id='set_user_name'>
          <div class="form-group">
            <label for="username">Hue User Name:</label>
            <input type="text" class="form-control" id="username" name='username' placeholder="username here">
          </div>
+         <button type="submit" class="btn btn-default" >Set Username</button>
        </form>
-       <button type="submit" class="btn btn-default" id='set_user_name'>Set Username</button>
+
        <p id='api_key'></p>
       </div>
      </div>
@@ -124,6 +125,7 @@
       <h2>Other Actions</h2>
       <button class='btn btn-default' id='toggle_lights'>Toggle Lights ON/OFF</button>
       <button class='btn btn-default' id='color_loop'>Toggle Color Loop</button>
+      <button class='btn btn-default' id='random_colors'>Random Colors</button>
      </div>
      </div>
 

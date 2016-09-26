@@ -22,7 +22,7 @@ $('#find_ip').click(function(){
 })
 
 // set the user name to get your api key back
-$('#set_user_name').click(function(){
+$('#set_user_name').submit(function(){
  hue_user_name = $('#username').val()
 
  $.ajax({
@@ -45,7 +45,8 @@ $('#set_user_name').click(function(){
      }
 
    });
-
+   
+   return false;
 })
 
 
@@ -73,6 +74,15 @@ $('#change_light').click(function(){
      show_light_info()
    });
 
+})
+
+
+// Sets a random set of colors for each light
+$("#random_colors").click(function(){
+ for(var i = 0; i < num_of_lights; i++){
+  set_random_color(i + 1);
+ }
+ show_light_info()
 })
 
 
@@ -138,9 +148,19 @@ function set_lights_input(){
  }
 }
 
+// Set random color for the light passed to the function
+function set_random_color(light_number){
+ var saturation = Math.floor(Math.random() * 254 + 1)
+ var brightness = Math.floor(Math.random() * 254 + 1)
+ var hue = Math.floor(Math.random() * 65535 + 1)
 
-
+ $.ajax({
+   method: "Put",
+   url: "http://"+ internal_ip +"/api/"+ hue_api_key +"/lights/"+ light_number +"/state",
+   data:JSON.stringify({ on : true , sat: saturation, bri: brightness, hue: hue})
+ })
+   .done(function( res ) {
+   });
+}
 
 })
-
-// -HURFyu7gzAHleHL1zZZMCYFOwZBQJpyMuapUflT
